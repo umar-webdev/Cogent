@@ -1,0 +1,21 @@
+{
+  "name": "@cogent/content",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./tracks/index.ts",
+    "./tracks/*": "./tracks/*"
+  },
+  "dependencies": {
+    "@cogent/contracts": "workspace:*",
+    "@cogent/grading-engine": "workspace:*"
+  },
+  "devDependencies": {
+    "@cogent/config": "workspace:*",
+    "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}

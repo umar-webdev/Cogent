@@ -1,0 +1,52 @@
+{
+  "id": "01-is-even",
+  "title": "Is Even?",
+  "description": "Wire Input → Conditional → Text, then implement checkValue so even numbers return true.",
+  "trackId": "conditionals",
+  "selectedNodeId": "conditional-1",
+  "nodes": [
+    {
+      "id": "input-1",
+      "type": "blockNode",
+      "position": { "x": 80, "y": 120 },
+      "data": {
+        "blockId": "input.v1",
+        "label": "Input",
+        "icon": "⌨️",
+        "status": "implemented"
+      }
+    },
+    {
+      "id": "conditional-1",
+      "type": "blockNode",
+      "position": { "x": 320, "y": 120 },
+      "data": {
+        "blockId": "conditional.v1",
+        "label": "Conditional",
+        "icon": "🔀",
+        "status": "untouched"
+      }
+    },
+    {
+      "id": "text-1",
+      "type": "blockNode",
+      "position": { "x": 560, "y": 120 },
+      "data": {
+        "blockId": "text.v1",
+        "label": "Text",
+        "icon": "📄",
+        "status": "implemented"
+      }
+    }
+  ],
+  "edges": [
+    { "id": "e-input-conditional", "source": "input-1", "target": "conditional-1", "animated": true },
+    { "id": "e-conditional-text", "source": "conditional-1", "target": "text-1", "animated": true }
+  ],
+  "codeByNodeId": {
+    "conditional-1": "function checkValue(value: number): boolean {\n  // Implement the condition\n  return false;\n}"
+  },
+  "testsByBlockId": {
+    "conditional.v1": "is-even-tests"
+  }
+}

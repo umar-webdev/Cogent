@@ -1,0 +1,8 @@
+{
+  "extends": "@cogent/config/tsconfig",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["bun"]
+  },
+  "include": ["src"]
+}

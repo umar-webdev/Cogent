@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "isolatedModules": true,
+    "paths": {
+      "@cogent/contracts": ["./packages/contracts/src/index.ts"],
+      "@cogent/block-registry": ["./packages/block-registry/src/index.ts"],
+      "@cogent/grading-engine": ["./packages/grading-engine/src/index.ts"],
+      "@cogent/ui": ["./packages/ui/src/index.tsx"],
+      "@cogent/canvas-kit": ["./packages/canvas-kit/src/index.ts"],
+      "@cogent/db": ["./packages/db/src/index.ts"],
+      "@cogent/config/*": ["./packages/config/*"]
+    }
+  }
+}

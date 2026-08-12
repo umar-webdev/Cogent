@@ -1,0 +1,15 @@
+{
+  "name": "@cogent/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "echo \"api not scaffolded yet\"",
+    "build": "echo \"api not scaffolded yet\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@cogent/config": "workspace:*",
+    "typescript": "^5.8.3"
+  }
+}

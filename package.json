@@ -1,0 +1,22 @@
+{
+  "name": "cogent",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "content"
+  ],
+  "scripts": {
+    "dev": "turbo dev --filter=@cogent/web",
+    "dev:all": "turbo dev",
+    "build": "turbo build",
+    "typecheck": "turbo typecheck",
+    "test": "turbo test"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.19",
+    "turbo": "^2.5.4",
+    "typescript": "^5.8.3"
+  },
+  "packageManager": "bun@1.1.21"
+}

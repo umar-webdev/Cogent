@@ -1,0 +1,8 @@
+{
+  "extends": "@cogent/config/tsconfig",
+  "compilerOptions": {
+    "noEmit": true,
+    "resolveJsonModule": true
+  },
+  "include": ["tracks"]
+}

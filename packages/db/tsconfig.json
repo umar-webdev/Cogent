@@ -1,0 +1,9 @@
+{
+  "extends": "@cogent/config/tsconfig.node",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "noEmit": true
+  },
+  "include": ["src"]
+}

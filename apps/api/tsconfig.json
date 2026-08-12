@@ -1,0 +1,7 @@
+{
+  "extends": "@cogent/config/tsconfig.node",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": ["src"]
+}

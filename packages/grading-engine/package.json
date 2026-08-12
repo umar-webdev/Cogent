@@ -1,0 +1,21 @@
+{
+  "name": "@cogent/grading-engine",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "@cogent/contracts": "workspace:*"
+  },
+  "devDependencies": {
+    "@cogent/config": "workspace:*",
+    "@types/bun": "^1.2.19",
+    "typescript": "^5.8.3"
+  }
+}
