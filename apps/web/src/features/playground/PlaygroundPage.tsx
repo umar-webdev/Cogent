@@ -1,4 +1,5 @@
 import { Button } from "@cogent/ui";
+import { appEnvironment, environmentLabel } from "../../shared/lib/env";
 import { AssemblyPreview } from "../assembly/AssemblyPreview";
 import { BlockPalette } from "./BlockPalette";
 import { BlockWorkspace } from "./BlockWorkspace";
@@ -21,6 +22,17 @@ export function PlaygroundPage() {
             </p>
           </div>
           <div className="flex items-center gap-3">
+            {appEnvironment !== "development" && (
+              <span
+                className={`rounded-full px-3 py-1 text-xs ${
+                  appEnvironment === "production"
+                    ? "bg-emerald-950 text-emerald-300"
+                    : "bg-amber-950 text-amber-300"
+                }`}
+              >
+                {environmentLabel()}
+              </span>
+            )}
             <Button variant="ghost" onClick={resetChallenge}>
               Reset challenge
             </Button>
