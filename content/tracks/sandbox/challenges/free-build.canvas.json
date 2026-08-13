@@ -1,0 +1,18 @@
+{
+  "id": "free-build",
+  "title": "Free build",
+  "description": "Empty canvas — add blocks from the library, wire them together, and the assembly preview builds your form when you add Input + Formatter.",
+  "trackId": "sandbox",
+  "assemblyKind": "sandbox",
+  "focusBlockId": "formatter.v1",
+  "implementHint": "Use formatForm(fields) — keys match your Input block labels on the canvas.",
+  "assemblyHint": "Add Input blocks, optional Validators, and a Formatter. Wire Input → Validator → Formatter, then the live form appears below.",
+  "previewBlockLabel": "Formatter",
+  "assemblyPreviewAlways": false,
+  "selectedNodeId": null,
+  "nodes": [],
+  "edges": [],
+  "codeByNodeId": {},
+  "testsByBlockId": {},
+  "testsByNodeId": {}
+}

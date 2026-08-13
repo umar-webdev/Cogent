@@ -3,6 +3,7 @@ import { Handle, Position } from "@xyflow/react";
 import { Badge } from "@cogent/ui";
 import { BlockIcon } from "../blocks/BlockIcon";
 import type { CanvasBlockNode } from "./usePlaygroundStore";
+import { inputFieldTypeLabel, normalizeInputFieldType } from "./inputFieldTypes";
 
 const statusTone = {
   untouched: "warning",
@@ -28,7 +29,11 @@ export function BlockNode({ data, selected }: NodeProps<CanvasBlockNode>) {
         <BlockIcon name={data.icon} size={22} className="shrink-0 text-indigo-400" />
         <div>
           <p className="text-sm font-semibold text-slate-100">{data.label}</p>
-          <p className="text-[10px] uppercase tracking-wide text-slate-500">{data.blockId}</p>
+          <p className="text-[10px] uppercase tracking-wide text-slate-500">
+            {data.blockId === "input.v1"
+              ? inputFieldTypeLabel(normalizeInputFieldType(data.fieldType))
+              : data.blockId}
+          </p>
         </div>
       </div>
       <div className="mt-2">

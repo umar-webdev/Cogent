@@ -27,9 +27,9 @@ export function snapshotFromChallenge(challenge: {
   selectedNodeId: string | null;
 }): CanvasSnapshot {
   return {
-    nodes: challenge.nodes as CanvasBlockNode[],
-    edges: challenge.edges as Edge[],
-    codeByNodeId: challenge.codeByNodeId,
+    nodes: structuredClone(challenge.nodes) as CanvasBlockNode[],
+    edges: structuredClone(challenge.edges) as Edge[],
+    codeByNodeId: { ...challenge.codeByNodeId },
     selectedNodeId: challenge.selectedNodeId,
   };
 }

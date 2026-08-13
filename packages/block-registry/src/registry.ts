@@ -9,6 +9,8 @@ const CATEGORY_BY_BLOCK: Record<FrontendBlockId, BlockCategory> = {
   "input.v1": "input",
   "text.v1": "display",
   "conditional.v1": "logic",
+  "formatter.v1": "logic",
+  "validator.v1": "logic",
   "loop.v1": "logic",
   "state.v1": "state",
 };
@@ -18,6 +20,8 @@ const ICON_BY_BLOCK: Record<FrontendBlockId, BlockIconName> = {
   "input.v1": "input",
   "text.v1": "text",
   "conditional.v1": "conditional",
+  "formatter.v1": "formatter",
+  "validator.v1": "validator",
   "loop.v1": "loop",
   "state.v1": "state",
 };
@@ -27,6 +31,8 @@ const DESCRIPTION_BY_BLOCK: Record<FrontendBlockId, string> = {
   "input.v1": "Captures text from the user.",
   "text.v1": "Displays read-only content.",
   "conditional.v1": "Branches logic based on a boolean condition.",
+  "formatter.v1": "Combines form fields into display text.",
+  "validator.v1": "Checks a field value and returns an error message when invalid.",
   "loop.v1": "Repeats rendering for each item in a list.",
   "state.v1": "Holds mutable data shared across blocks.",
 };

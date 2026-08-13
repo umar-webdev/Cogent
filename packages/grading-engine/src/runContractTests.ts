@@ -12,15 +12,22 @@ export function extractFunctionName(stub: string): string {
 
 /** Strip simple TS annotations so learner stubs run in the browser/Function constructor. */
 export function toRunnableJs(code: string): string {
-  return code
-    .replace(/:\s*number\b/g, "")
-    .replace(/:\s*boolean\b/g, "")
-    .replace(/:\s*string\b/g, "")
-    .replace(/:\s*void\b/g, "")
-    .replace(/:\s*JSX\.Element\b/g, "")
-    .replace(/:\s*\[T,\s*\([^)]*\)\s*=>\s*void\]/g, "")
-    .replace(/<[A-Z]\w*>/g, "")
-    .replace(/<T>/g, "");
+  return (
+    code
+      .replace(/^\s*export\s+/gm, "")
+      // Object return types (incl. multiline) — before bare :boolean/:string strips
+      .replace(/\)\s*:\s*\{[\s\S]*?\}\s*(?=\{)/g, ") ")
+      .replace(/\)\s*:\s*\{[^{}]+\}/g, ")")
+      .replace(/:\s*number\b/g, "")
+      .replace(/:\s*boolean\b/g, "")
+      .replace(/:\s*string\b/g, "")
+      .replace(/:\s*Record<string,\s*string>/g, "")
+      .replace(/:\s*void\b/g, "")
+      .replace(/:\s*JSX\.Element\b/g, "")
+      .replace(/:\s*\[T,\s*\([^)]*\)\s*=>\s*void\]/g, "")
+      .replace(/<[A-Z]\w*>/g, "")
+      .replace(/<T>/g, "")
+  );
 }
 
 export function invokeBlockFunction(
@@ -50,6 +57,35 @@ export function exportBlockCode(userCode: string, stub: string): string {
   return js;
 }
 
+function matchesExpected(received: unknown, testCase: ContractTestCase): boolean {
+  if (testCase.match === "validator_shape") {
+    return (
+      typeof received === "object" &&
+      received !== null &&
+      typeof (received as { valid?: unknown }).valid === "boolean" &&
+      typeof (received as { message?: unknown }).message === "string"
+    );
+  }
+
+  if (testCase.match === "partial") {
+    if (typeof testCase.expected !== "object" || testCase.expected === null) {
+      return Object.is(received, testCase.expected);
+    }
+    if (typeof received !== "object" || received === null) {
+      return false;
+    }
+    return Object.entries(testCase.expected as Record<string, unknown>).every(
+      ([key, value]) => (received as Record<string, unknown>)[key] === value,
+    );
+  }
+
+  if (typeof received === "object" && received !== null) {
+    return JSON.stringify(received) === JSON.stringify(testCase.expected);
+  }
+
+  return Object.is(received, testCase.expected);
+}
+
 function runSingleTest(
   contract: BlockContractBase,
   userCode: string,
@@ -59,10 +95,7 @@ function runSingleTest(
 
   try {
     const received = invokeBlockFunction(userCode, fnName, testCase.input);
-    const pass =
-      typeof received === "object" && received !== null
-        ? JSON.stringify(received) === JSON.stringify(testCase.expected)
-        : Object.is(received, testCase.expected);
+    const pass = matchesExpected(received, testCase);
 
     const base: TestCaseResult = {
       name: testCase.name,

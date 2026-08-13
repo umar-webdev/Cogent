@@ -3,6 +3,8 @@ export type ContractTestCase = {
   input: Record<string, unknown>;
   expected: unknown;
   hint?: string;
+  /** How to compare received vs expected. Default: exact. */
+  match?: "exact" | "partial" | "validator_shape";
 };
 
 export type TestCaseResult = {

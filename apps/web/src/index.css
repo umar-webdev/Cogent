@@ -17,6 +17,30 @@ body {
   min-height: 100vh;
 }
 
+.cogent-btn {
+  @apply cursor-pointer rounded-lg px-4 py-2 text-sm font-medium transition disabled:opacity-50;
+}
+
+.cogent-btn--primary {
+  @apply bg-indigo-600 text-white hover:bg-indigo-500;
+}
+
+.cogent-btn--secondary {
+  @apply bg-slate-700 text-slate-100 hover:bg-slate-600;
+}
+
+.cogent-btn--light {
+  @apply bg-slate-800 text-slate-100 hover:bg-slate-700;
+}
+
+.cogent-btn--ghost {
+  @apply bg-transparent text-slate-300 hover:bg-slate-800;
+}
+
+.cogent-btn--danger {
+  @apply border border-rose-700 bg-rose-900/60 text-rose-300 hover:bg-rose-900;
+}
+
 .react-flow__node-blockNode {
   font-size: 12px;
 }

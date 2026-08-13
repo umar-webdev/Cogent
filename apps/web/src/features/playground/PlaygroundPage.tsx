@@ -3,12 +3,17 @@ import { appEnvironment, environmentLabel } from "../../shared/lib/env";
 import { AssemblyPreview } from "../assembly/AssemblyPreview";
 import { BlockPalette } from "./BlockPalette";
 import { BlockWorkspace } from "./BlockWorkspace";
+import { ChallengePicker } from "./ChallengePicker";
 import { PlaygroundCanvas } from "./PlaygroundCanvas";
 import { usePlaygroundStore } from "./usePlaygroundStore";
 
 export function PlaygroundPage() {
   const challengeTitle = usePlaygroundStore((state) => state.challengeTitle);
-  const challengeDescription = usePlaygroundStore((state) => state.challengeDescription);
+  const challengeId = usePlaygroundStore((state) => state.challengeId);
+  const selectedNodeId = usePlaygroundStore((state) => state.selectedNodeId);
+  const challengeDescription = usePlaygroundStore(
+    (state) => state.challengeDescription,
+  );
   const resetChallenge = usePlaygroundStore((state) => state.resetChallenge);
 
   return (
@@ -18,8 +23,11 @@ export function PlaygroundPage() {
           <div>
             <h1 className="text-lg font-bold text-white">Cogent Playground</h1>
             <p className="text-sm text-slate-400">
-              Phase 3 — Sandpack execution, assembly preview, content-driven challenges
+              Build architecture on the canvas, implement blocks, run tests, preview the app
             </p>
+            <div className="mt-3">
+              <ChallengePicker />
+            </div>
           </div>
           <div className="flex items-center gap-3">
             {appEnvironment !== "development" && (
@@ -33,8 +41,8 @@ export function PlaygroundPage() {
                 {environmentLabel()}
               </span>
             )}
-            <Button variant="ghost" onClick={resetChallenge}>
-              Reset challenge
+            <Button variant="danger" onClick={resetChallenge}>
+              Reset
             </Button>
             <span className="rounded-full bg-indigo-950 px-3 py-1 text-xs text-indigo-300">
               {challengeTitle}
@@ -53,7 +61,7 @@ export function PlaygroundPage() {
           <AssemblyPreview />
         </div>
 
-        <BlockWorkspace />
+        <BlockWorkspace key={`${challengeId}:${selectedNodeId ?? "none"}`} />
       </main>
     </div>
   );

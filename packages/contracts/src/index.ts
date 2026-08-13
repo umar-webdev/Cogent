@@ -1,10 +1,12 @@
 import type { BlockContractBase, FrontendBlockId } from "./block-base.schema.js";
 import { buttonContract } from "./frontend/button.contract.js";
 import { conditionalContract } from "./frontend/conditional.contract.js";
+import { formatterContract } from "./frontend/formatter.contract.js";
 import { inputContract } from "./frontend/input.contract.js";
 import { loopContract } from "./frontend/loop.contract.js";
 import { stateContract } from "./frontend/state.contract.js";
 import { textContract } from "./frontend/text.contract.js";
+import { validatorContract } from "./frontend/validator.contract.js";
 
 export * from "./block-base.schema.js";
 export * from "./connection-rules.js";
@@ -12,6 +14,8 @@ export * from "./frontend/button.contract.js";
 export * from "./frontend/input.contract.js";
 export * from "./frontend/text.contract.js";
 export * from "./frontend/conditional.contract.js";
+export * from "./frontend/formatter.contract.js";
+export * from "./frontend/validator.contract.js";
 export * from "./frontend/loop.contract.js";
 export * from "./frontend/state.contract.js";
 
@@ -21,6 +25,8 @@ export const FRONTEND_BLOCK_CONTRACTS = {
   "input.v1": inputContract,
   "text.v1": textContract,
   "conditional.v1": conditionalContract,
+  "formatter.v1": formatterContract,
+  "validator.v1": validatorContract,
   "loop.v1": loopContract,
   "state.v1": stateContract,
 } as const satisfies Record<FrontendBlockId, BlockContractBase>;

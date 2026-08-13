@@ -31,6 +31,8 @@ export const FrontendBlockIdSchema = z.enum([
   "input.v1",
   "text.v1",
   "conditional.v1",
+  "formatter.v1",
+  "validator.v1",
   "loop.v1",
   "state.v1",
 ]);

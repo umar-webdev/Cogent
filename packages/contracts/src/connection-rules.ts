@@ -19,13 +19,20 @@ export type PortCompatibility = {
 
 /** Legal block-to-block connections for v1 frontend blocks. */
 export const ALLOWED_CONNECTIONS: ConnectionRule[] = [
+  { from: "input.v1", to: "formatter.v1" },
+  { from: "input.v1", to: "validator.v1" },
   { from: "input.v1", to: "conditional.v1" },
   { from: "input.v1", to: "text.v1" },
   { from: "input.v1", to: "state.v1" },
+  { from: "validator.v1", to: "formatter.v1" },
+  { from: "validator.v1", to: "text.v1" },
   { from: "state.v1", to: "conditional.v1" },
   { from: "state.v1", to: "text.v1" },
   { from: "state.v1", to: "input.v1" },
+  { from: "formatter.v1", to: "text.v1" },
   { from: "conditional.v1", to: "text.v1" },
+  { from: "button.v1", to: "formatter.v1" },
+  { from: "button.v1", to: "validator.v1" },
   { from: "loop.v1", to: "text.v1" },
   { from: "button.v1", to: "state.v1" },
 ];

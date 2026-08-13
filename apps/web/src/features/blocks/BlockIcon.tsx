@@ -6,7 +6,9 @@ import {
   IconFileText,
   IconForms,
   IconGitBranch,
+  IconMessage2,
   IconRepeat,
+  IconShieldCheck,
   type IconProps,
 } from "@tabler/icons-react";
 
@@ -15,6 +17,8 @@ const BLOCK_ICONS: Record<BlockIconName, ComponentType<IconProps>> = {
   input: IconForms,
   text: IconFileText,
   conditional: IconGitBranch,
+  formatter: IconMessage2,
+  validator: IconShieldCheck,
   loop: IconRepeat,
   state: IconDatabase,
 };

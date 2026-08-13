@@ -1,0 +1,82 @@
+{
+  "id": "01-greeting-form",
+  "title": "Greeting Form",
+  "description": "Plan a form: First name + Last name → Formatter → Text. Click the button in the assembly preview to see the result.",
+  "trackId": "forms",
+  "assemblyKind": "greeting-form",
+  "focusBlockId": "formatter.v1",
+  "implementHint": "Implement formatForm(fields) — use fields[\"First name\"] and fields[\"Last name\"].",
+  "assemblyHint": "Fill in the form and click Show greeting to see your formatter block in action.",
+  "previewBlockLabel": "Formatter",
+  "assemblyPreviewAlways": true,
+  "selectedNodeId": "formatter-1",
+  "nodes": [
+    {
+      "id": "input-first",
+      "type": "blockNode",
+      "position": { "x": 60, "y": 80 },
+      "data": {
+        "blockId": "input.v1",
+        "label": "First name",
+        "icon": "input",
+        "status": "implemented"
+      }
+    },
+    {
+      "id": "input-last",
+      "type": "blockNode",
+      "position": { "x": 60, "y": 200 },
+      "data": {
+        "blockId": "input.v1",
+        "label": "Last name",
+        "icon": "input",
+        "status": "implemented"
+      }
+    },
+    {
+      "id": "formatter-1",
+      "type": "blockNode",
+      "position": { "x": 300, "y": 140 },
+      "data": {
+        "blockId": "formatter.v1",
+        "label": "Formatter",
+        "icon": "formatter",
+        "status": "untouched"
+      }
+    },
+    {
+      "id": "button-1",
+      "type": "blockNode",
+      "position": { "x": 300, "y": 280 },
+      "data": {
+        "blockId": "button.v1",
+        "label": "Submit",
+        "icon": "button",
+        "status": "implemented"
+      }
+    },
+    {
+      "id": "text-1",
+      "type": "blockNode",
+      "position": { "x": 540, "y": 140 },
+      "data": {
+        "blockId": "text.v1",
+        "label": "Greeting",
+        "icon": "text",
+        "status": "implemented"
+      }
+    }
+  ],
+  "edges": [
+    { "id": "e-first-formatter", "source": "input-first", "target": "formatter-1", "animated": true },
+    { "id": "e-last-formatter", "source": "input-last", "target": "formatter-1", "animated": true },
+    { "id": "e-formatter-text", "source": "formatter-1", "target": "text-1", "animated": true },
+    { "id": "e-button-formatter", "source": "button-1", "target": "formatter-1", "animated": true }
+  ],
+  "codeByNodeId": {
+    "formatter-1": "function formatForm(fields: Record<string, string>): string {\n  // Build a greeting from the form fields\n  return \"\";\n}"
+  },
+  "testsByBlockId": {
+    "formatter.v1": "greeting-form-tests"
+  }
+}

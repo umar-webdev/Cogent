@@ -1,13 +1,7 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: "primary" | "secondary" | "ghost";
-};
-
-const variantClasses: Record<NonNullable<ButtonProps["variant"]>, string> = {
-  primary: "bg-indigo-600 text-white hover:bg-indigo-500",
-  secondary: "bg-slate-700 text-slate-100 hover:bg-slate-600",
-  ghost: "bg-transparent text-slate-300 hover:bg-slate-800",
+  variant?: "primary" | "secondary" | "light" | "ghost" | "danger";
 };
 
 export function Button({
@@ -18,7 +12,7 @@ export function Button({
 }: ButtonProps) {
   return (
     <button
-      className={`rounded-lg px-4 py-2 text-sm font-medium transition disabled:opacity-50 ${variantClasses[variant]} ${className}`}
+      className={`cogent-btn cogent-btn--${variant} ${className}`}
       {...props}
     >
       {children}
