@@ -2,7 +2,7 @@ import {
   FRONTEND_BLOCK_CONTRACTS,
   type FrontendBlockId,
 } from "@cogent/contracts";
-import type { BlockCategory, BlockDefinition } from "./types.js";
+import type { BlockCategory, BlockDefinition, BlockIconName } from "./types.js";
 
 const CATEGORY_BY_BLOCK: Record<FrontendBlockId, BlockCategory> = {
   "button.v1": "input",
@@ -13,13 +13,13 @@ const CATEGORY_BY_BLOCK: Record<FrontendBlockId, BlockCategory> = {
   "state.v1": "state",
 };
 
-const ICON_BY_BLOCK: Record<FrontendBlockId, string> = {
-  "button.v1": "🔘",
-  "input.v1": "⌨️",
-  "text.v1": "📄",
-  "conditional.v1": "🔀",
-  "loop.v1": "🔁",
-  "state.v1": "💾",
+const ICON_BY_BLOCK: Record<FrontendBlockId, BlockIconName> = {
+  "button.v1": "button",
+  "input.v1": "input",
+  "text.v1": "text",
+  "conditional.v1": "conditional",
+  "loop.v1": "loop",
+  "state.v1": "state",
 };
 
 const DESCRIPTION_BY_BLOCK: Record<FrontendBlockId, string> = {

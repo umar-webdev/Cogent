@@ -12,7 +12,7 @@
       "data": {
         "blockId": "input.v1",
         "label": "Input",
-        "icon": "⌨️",
+        "icon": "input",
         "status": "implemented"
       }
     },
@@ -23,7 +23,7 @@
       "data": {
         "blockId": "conditional.v1",
         "label": "Conditional",
-        "icon": "🔀",
+        "icon": "conditional",
         "status": "untouched"
       }
     },
@@ -34,7 +34,7 @@
       "data": {
         "blockId": "text.v1",
         "label": "Text",
-        "icon": "📄",
+        "icon": "text",
         "status": "implemented"
       }
     }

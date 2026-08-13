@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@source "../../packages/ui/src";
 
 :root {
   color-scheme: dark;
@@ -20,6 +21,17 @@ body {
   font-size: 12px;
 }
 
+/* Badge lives inside React Flow nodes — reset inherited font-size/padding */
+.react-flow__node-blockNode .cogent-badge {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  font-size: 8px;
+  line-height: 1;
+}
+
 .react-flow__controls button {
   background: #1e293b;
   border-color: #334155;
@@ -28,4 +40,26 @@ body {
 
 .react-flow__controls button:hover {
   background: #334155;
+}
+
+.block-library-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #334155 transparent;
+}
+
+.block-library-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.block-library-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.block-library-scroll::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 9999px;
+}
+
+.block-library-scroll::-webkit-scrollbar-thumb:hover {
+  background: #475569;
 }

@@ -1,6 +1,7 @@
 import Editor from "@monaco-editor/react";
 import { getBlockDefinition } from "@cogent/block-registry";
 import { Badge, Button, Panel } from "@cogent/ui";
+import { BlockIcon } from "../blocks/BlockIcon";
 import { SandpackRunner } from "../execution/SandpackRunner";
 import { runBlock } from "../execution/runBlock";
 import { transitionBlockStatus } from "../execution/blockStateMachine";
@@ -71,7 +72,12 @@ export function BlockWorkspace() {
   return (
     <div className="flex h-full flex-col gap-4 overflow-auto">
       <Panel
-        title={`${definition.icon} ${definition.label}`}
+        title={
+          <span className="flex items-center gap-2">
+            <BlockIcon name={definition.icon} size={18} />
+            {definition.label}
+          </span>
+        }
         className="min-h-0 shrink-0"
         action={
           <Button onClick={handleRunTests} disabled={!code.trim() || !hasTests}>

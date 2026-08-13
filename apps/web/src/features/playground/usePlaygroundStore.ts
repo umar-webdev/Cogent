@@ -13,14 +13,14 @@ import {
   type NodeChange,
 } from "@xyflow/react";
 import { create } from "zustand";
-import { getBlockDefinition } from "@cogent/block-registry";
+import { getBlockDefinition, type BlockIconName } from "@cogent/block-registry";
 import { snapshotFromChallenge } from "../canvas/persistence";
 import { transitionBlockStatus } from "../execution/blockStateMachine";
 
 export type CanvasBlockNode = Node<{
   blockId: FrontendBlockId;
   label: string;
-  icon: string;
+  icon: BlockIconName;
   status: BlockImplementationStatus;
 }>;
 

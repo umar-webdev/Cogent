@@ -1,3 +1,4 @@
+import type { BlockIconName } from "@cogent/block-registry";
 import type { FrontendBlockId } from "@cogent/contracts";
 import type { BlockImplementationStatus, ContractTestCase } from "@cogent/grading-engine";
 import { conditionalsTrack } from "../track.meta.js";
@@ -11,7 +12,7 @@ export type ChallengeCanvasNode = {
   data: {
     blockId: FrontendBlockId;
     label: string;
-    icon: string;
+    icon: BlockIconName;
     status: BlockImplementationStatus;
   };
 };

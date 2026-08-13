@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "@cogent/contracts": "workspace:*",
-    "@cogent/grading-engine": "workspace:*"
+    "@cogent/grading-engine": "workspace:*",
+    "@cogent/block-registry": "workspace:*"
   },
   "devDependencies": {
     "@cogent/config": "workspace:*",

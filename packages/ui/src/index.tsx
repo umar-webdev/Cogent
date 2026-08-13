@@ -29,19 +29,30 @@ export function Button({
 type BadgeProps = {
   children: ReactNode;
   tone?: "neutral" | "success" | "error" | "warning";
+  className?: string;
 };
 
 const badgeToneClasses: Record<NonNullable<BadgeProps["tone"]>, string> = {
-  neutral: "bg-slate-700 text-slate-200",
-  success: "bg-emerald-900/60 text-emerald-300 border border-emerald-700",
-  error: "bg-rose-900/60 text-rose-300 border border-rose-700",
-  warning: "bg-amber-900/60 text-amber-300 border border-amber-700",
+  neutral: "border-slate-600 bg-slate-800 text-slate-200",
+  success: "border-emerald-700/80 bg-emerald-950/60 text-emerald-300",
+  error: "border-rose-700/80 bg-rose-950/60 text-rose-300",
+  warning: "border-amber-700/80 bg-amber-950/60 text-amber-300",
 };
 
-export function Badge({ children, tone = "neutral" }: BadgeProps) {
+export function Badge({
+  children,
+  tone = "neutral",
+  className = "",
+}: BadgeProps) {
   return (
     <span
-      className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${badgeToneClasses[tone]}`}
+      className={`cogent-badge inline-flex items-center justify-center whitespace-nowrap rounded-full border font-medium ${badgeToneClasses[tone]} ${className}`}
+      style={{
+        padding: 4,
+        fontSize: 8,
+        lineHeight: 1,
+        boxSizing: "border-box",
+      }}
     >
       {children}
     </span>
@@ -49,7 +60,7 @@ export function Badge({ children, tone = "neutral" }: BadgeProps) {
 }
 
 type PanelProps = {
-  title: string;
+  title: ReactNode;
   children: ReactNode;
   className?: string;
   action?: ReactNode;

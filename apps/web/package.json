@@ -17,6 +17,7 @@
     "@cogent/ui": "workspace:*",
     "@codesandbox/sandpack-react": "^2.20.0",
     "@monaco-editor/react": "^4.7.0",
+    "@tabler/icons-react": "^3.34.1",
     "@xyflow/react": "^12.8.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

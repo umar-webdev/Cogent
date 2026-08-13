@@ -41,12 +41,11 @@ export function PlaygroundPage() {
             </span>
           </div>
         </div>
+        <BlockPalette />
         <p className="mt-2 text-sm text-slate-500">{challengeDescription}</p>
       </header>
 
-      <main className="grid min-h-0 flex-1 grid-cols-[260px_1fr_400px] gap-4 p-4">
-        <BlockPalette />
-
+      <main className="grid min-h-0 flex-1 grid-cols-1 gap-4 p-4 lg:grid-cols-[1fr_400px]">
         <div className="flex min-h-0 flex-col gap-4">
           <section className="relative min-h-[340px] flex-1 overflow-hidden rounded-xl border border-slate-800 bg-slate-950/40">
             <PlaygroundCanvas />

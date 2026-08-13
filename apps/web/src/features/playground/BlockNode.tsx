@@ -1,6 +1,7 @@
 import type { NodeProps } from "@xyflow/react";
 import { Handle, Position } from "@xyflow/react";
 import { Badge } from "@cogent/ui";
+import { BlockIcon } from "../blocks/BlockIcon";
 import type { CanvasBlockNode } from "./usePlaygroundStore";
 
 const statusTone = {
@@ -24,7 +25,7 @@ export function BlockNode({ data, selected }: NodeProps<CanvasBlockNode>) {
     >
       <Handle type="target" position={Position.Left} className="!bg-indigo-400" />
       <div className="flex items-center gap-2">
-        <span className="text-lg">{data.icon}</span>
+        <BlockIcon name={data.icon} size={22} className="shrink-0 text-indigo-400" />
         <div>
           <p className="text-sm font-semibold text-slate-100">{data.label}</p>
           <p className="text-[10px] uppercase tracking-wide text-slate-500">{data.blockId}</p>
