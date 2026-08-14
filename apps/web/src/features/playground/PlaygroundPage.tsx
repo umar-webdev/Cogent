@@ -21,7 +21,7 @@ export function PlaygroundPage() {
       <header className="border-b border-slate-800 bg-slate-950/80 px-6 py-4 backdrop-blur">
         <div className="flex items-center justify-between gap-4">
           <div>
-            <h1 className="text-lg font-bold text-white">Cogent Playground</h1>
+            <h1 className="text-lg font-bold text-white">Cogent</h1>
             <p className="text-sm text-slate-400">
               Build architecture on the canvas, implement blocks, run tests, preview the app
             </p>
